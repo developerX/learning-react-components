@@ -3,12 +3,20 @@ import logo from './logo.svg';
 import './App.css';
 
 class App extends Component {
-  
+
   constructor() {
     super();
-    this.state = {};
+    this.state = {
+      something: 'before'
+    };
+
+    this.handleClick = this.handleClick.bind(this);
   }
   
+  handleClick() {
+    this.setState({something: 'something'});
+  }
+
   render() {
     return (
       <div className="App">
@@ -19,6 +27,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload.
         </p>
+        <button type="button" onClick={this.handleClick}> Set something to something </button>
       </div>
     );
   }
